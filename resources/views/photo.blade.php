@@ -374,13 +374,13 @@ body {
 <div class="container">
     <h2>Photos</h2>
     <div class="content">
-        @foreach ($photos as $photo)
+
        <div class="wrapper">
         <div class="box vintage">
-          <img src="{{asset('imagess/'.$photo->image)}}" alt="EMMYLOU">
+          <img src="" alt="EMMYLOU">
         </div>
       </div>
-      @endforeach
+
     </div>
   </div>
 @include('layouts.footer')

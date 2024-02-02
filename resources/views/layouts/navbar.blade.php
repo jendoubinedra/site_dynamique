@@ -253,7 +253,6 @@ a:-webkit-any-link {
             <a href="{{route('program.index')}}">Program </a>
             <a href=" {{route('guidelines.index')}}">Guidelines </a>
             <a href="{{route('call.index')}}">Call for Papers </a>
-            <a href="{{route('registration.index')}}">Registration </a>
             <a href="{{route('social.index')}}">Social Events </a>
           </div>
       </li>

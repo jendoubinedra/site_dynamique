@@ -1,1 +1,1 @@
-@include('page.pages')
+@include('layouts.navbar')

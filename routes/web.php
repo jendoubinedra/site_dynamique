@@ -1,23 +1,24 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ControllerSponsors;
-use App\Http\Controllers\ControllerTweets;
-
 use App\Http\Controllers\PageController;
-use App\Http\Controllers\linkController;
-use App\Http\Controllers\ControllerPhoto;
+use App\Http\Controllers\LinkController;
+use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\ControllerKeynotespeaker;
+use App\Http\Controllers\ControllerOrganizer;
 use App\Http\Controllers\ControllerSponsor;
+use App\Http\Controllers\ControllerTweet;
+use App\Http\Controllers\ControllerVideo;
+use App\Http\Controllers\ControllerPhoto;
+use App\Http\Controllers\CountrieController;
+use App\Http\Controllers\SpecialsessionController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DateController;
 use App\Http\Controllers\ParticipationController;
 use App\Http\Controllers\VenueController;
 use App\Http\Controllers\CommittesController;
-use App\Http\Controllers\SpecialsessionController;
-use App\Http\Controllers\AuthorController;
-use App\Http\Controllers\CountrieController;
-use App\Http\Controllers\ControllerVideo;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -34,14 +35,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-/// route page
-Route::get('/formP', [PageController::class,'formP'])->name('formP.index');
-Route::get('/listeP', [PageController::class,'getall'])->name('listeP.index');
+
+// page route
+Route::get('/page', [PageController::class,'getall'])->name('pages.index');
 Route::get('/page/{id}', [PageController::class,'getbyid'])->name('pages.index-id');
 Route::post('/page', [PageController::class,'add'])->name('pages.store');
 Route::put('/page/update/{id}', [PageController::class,'update'])->name('pages.update');
-Route::get('/page/{page}/edit', [PageController::class,'edit'])->name('page.edit');
-Route::delete('/delete/{id}', [PageController::class,'delete'])->name('pages.delete');
+Route::get('/page/edit/{id}', [PageController::class,'edit'])->name('pages.edit');
+Route::delete('/page/delete/{id}', [PageController::class,'delete'])->name('pages.delete');
+
+
 // link route
 Route::get('/link', [LinkController::class,'getall'])->name('links.index');
 Route::get('/link/{id}', [LinkController::class,'getbyid'])->name('links.index-id');
@@ -49,6 +52,8 @@ Route::post('/link', [LinkController::class,'add'])->name('links.store');
 Route::put('/link/update/{id}', [LinkController::class,'update'])->name('links.update');
 Route::get('/link/edit/{id}', [LinkController::class,'edit'])->name('links.edit');
 Route::delete('/link/delete/{id}', [LinkController::class,'delete'])->name('links.delete');
+
+
 // Author route
 Route::get('/author', [AuthorController::class,'getall'])->name('authors.index');
 Route::get('/author/{id}', [AuthorController::class,'getbyid'])->name('authors.index-id');
@@ -59,14 +64,13 @@ Route::delete('/author/delete/{id}', [AuthorController::class,'delete'])->name('
 
 
 // Keynotespeakers route
-Route::get('/speaker', [ControllerKeynotespeaker::class,'speaker'])->name('speaker.index');
-Route::get('/liste', [ControllerKeynotespeaker::class,'getall'])->name('liste.index');
+Route::get('/keynote', [ControllerKeynotespeaker::class,'getall'])->name('keynotes.index');
 Route::get('/keynote/{id}', [ControllerKeynotespeaker::class,'getbyid'])->name('keynotes.index-id');
 Route::post('/keynote', [ControllerKeynotespeaker::class,'add'])->name('keynotes.store');
 Route::put('/keynote/update/{id}', [ControllerKeynotespeaker::class,'update'])->name('keynotes.update');
 Route::get('/keynote/edit/{id}', [ControllerKeynotespeaker::class,'edit'])->name('keynotes.edit');
 Route::delete('/keynote/delete/{id}', [ControllerKeynotespeaker::class,'delete'])->name('keynotes.delete');
-Route::get('/keynotes', [ControllerKeynotespeaker::class,'keynotes'])->name('keynotes.index');
+
 
 
 // orgonizers route
@@ -76,6 +80,15 @@ Route::post('/organizer', [ControllerOrganizer::class,'add'])->name('organizers.
 Route::put('/organizer/update/{id}', [ControllerOrganizer::class,'update'])->name('organizers.update');
 Route::get('/organizer/edit/{id}', [ControllerOrganizer::class,'edit'])->name('organizers.edit');
 Route::delete('/organizer/delete/{id}', [ControllerOrganizer::class,'delete'])->name('organizers.delete');
+
+
+// sponsors route
+Route::get('/sponsor', [ControllerSponsor::class,'getall'])->name('sponsors.index');
+Route::get('/sponsor/{id}', [ControllerSponsor::class,'getbyid'])->name('sponsors.index-id');
+Route::post('/sponsor', [ControllerSponsor::class,'add'])->name('sponsors.store');
+Route::put('/sponsor/update/{id}', [ControllerSponsor::class,'update'])->name('sponsors.update');
+Route::get('/sponsor/edit/{id}', [ControllerSponsor::class,'edit'])->name('sponsors.edit');
+Route::delete('/sponsor/delete/{id}', [ControllerSponsor::class,'delete'])->name('sponsors.delete');
 
 // tweets route
 Route::get('/tweet', [ControllerTweet::class,'getall'])->name('tweets.index');
@@ -94,29 +107,16 @@ Route::get('/video/edit/{id}', [ControllerVideo::class,'edit'])->name('videos.ed
 Route::delete('/video/delete/{id}', [ControllerVideo::class,'delete'])->name('videos.delete');
 
 
-// sponsors route
-Route::get('/listeS', [ControllerSponsor::class,'getall'])->name('listeS.index');
-Route::get('/sponsor/{id}', [ControllerSponsor::class,'getbyid'])->name('sponsors.index-id');
-Route::post('/sponsor', [ControllerSponsor::class,'add'])->name('sponsors.store');
-Route::put('/sponsor/update/{id}', [ControllerSponsor::class,'update'])->name('sponsors.update');
-Route::get('/sponsor/edit/{id}', [ControllerSponsor::class,'edit'])->name('sponsors.edit');
-Route::delete('/sponsor/delete/{id}', [ControllerSponsor::class,'delete'])->name('sponsors.delete');
-Route::get('/affichage', [ControllerSponsor::class,'affichage'])->name('affichage.index');
-Route::get('/formS', [ControllerSponsor::class,'formSponsor'])->name('formS.index');
-Route::get('/viewsponsor', [ControllerSponsor::class,'viewsponsor'])->name('viewsponsor.index');
 // photo route
-Route::get('/formF', [ControllerPhoto::class,'formF'])->name('formF.index');
-Route::get('/listephoto', [ControllerPhoto::class,'getall'])->name('listephoto.index');
+Route::get('/photo', [ControllerPhoto::class,'getall'])->name('photos.index');
 Route::get('/photo/{id}', [ControllerPhoto::class,'getbyid'])->name('photos.index-id');
-Route::post('/photo', [ControllerPhoto::class,'add'])->name('addphotos.store');
+Route::post('/photo', [ControllerPhoto::class,'add'])->name('photos.store');
 Route::put('/photo/update/{id}', [ControllerPhoto::class,'update'])->name('photos.update');
 Route::get('/photo/edit/{id}', [ControllerPhoto::class,'edit'])->name('photos.edit');
 Route::delete('/photo/delete/{id}', [ControllerPhoto::class,'delete'])->name('photos.delete');
-Route::get('/videoPhoto', [ControllerPhoto::class,'videoPhoto'])->name('videoPhoto.index');
-Route::get('/affiche', [ControllerPhoto::class,'affiche'])->name('affiche.index');
+
 
 // countrie route
-Route::get('/formCountrie', [CountrieController::class,'formCountrie'])->name('formCountrie.index');
 Route::get('/countrie', [CountrieController::class,'getall'])->name('countries.index');
 Route::get('/countrie/{id}', [CountrieController::class,'getbyid'])->name('countries.index-id');
 Route::post('/countrie', [CountrieController::class,'add'])->name('countries.store');
@@ -126,13 +126,12 @@ Route::delete('/countrie/delete/{id}', [CountrieController::class,'delete'])->na
 
 
 // specialsession route
-Route::get('/liste', [SpecialsessionController::class,'getall'])->name('liste.index');
+Route::get('/specialsession', [SpecialsessionController::class,'getall'])->name('specialsessions.index');
 Route::get('/specialsession/{id}', [SpecialsessionController::class,'getbyid'])->name('specialsessions.index-id');
 Route::post('/specialsession', [SpecialsessionController::class,'add'])->name('specialsessions.store');
 Route::put('/specialsession/update/{id}', [SpecialsessionController::class,'update'])->name('specialsessions.update');
-Route::get('/edit/{id}', [SpecialsessionController::class,'edit'])->name('session.edit');
-Route::delete('/delete/{id}', [SpecialsessionController::class,'delete'])->name('session.delete');
-Route::get('specialsession/viewsession', [SpecialsessionController::class,'viewsession'])->name('viewsession.index');
+Route::get('/specialsession/edit/{id}', [SpecialsessionController::class,'edit'])->name('specialsessions.edit');
+Route::delete('/specialsession/delete/{id}', [SpecialsessionController::class,'delete'])->name('specialsessions.delete');
 
 
 // author route
@@ -142,7 +141,6 @@ Route::post('/author', [AuthorController::class,'add'])->name('authors.store');
 Route::put('/author/update/{id}', [AuthorController::class,'update'])->name('authors.update');
 Route::get('/author/edit/{id}', [AuthorController::class,'edit'])->name('authors.edit');
 Route::delete('/author/delete/{id}', [AuthorController::class,'delete'])->name('authors.delete');
-Route::get('/formulaireA', [AuthorController::class,'formulaireA'])->name('formulaireA.index');
 
 ///contact route
 Route::get('/contact', [ContactController::class,'contact'])->name('contact.index');
@@ -161,3 +159,8 @@ Route::get('/conference', [VenueController::class,'conference'])->name('conferen
 //Committees route
 
 Route::get('/Committees', [CommittesController::class,'Committees'])->name('Committees.index');
+//sponsor
+
+Route::get('/affichage', [ControllerSponsor::class,'affichage'])->name('affichage.index');
+//photo&video
+Route::get('/videoPhoto', [ControllerPhoto::class,'videoPhoto'])->name('videoPhoto.index');
