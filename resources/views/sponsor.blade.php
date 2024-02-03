@@ -88,7 +88,7 @@ a {
                 @foreach($sponsors as $sponsor)
                 <div class="menu-item dessert">
                     <div class="card">
-                        <img src="{{asset('imagess/'.$sponsor->image)}}" alt="" class="card-img-top">
+                        <img src="http://127.0.0.1:8000/{{$sponsor->src}}" alt="" class="card-img-top">
 
                     </div>
                 </div>

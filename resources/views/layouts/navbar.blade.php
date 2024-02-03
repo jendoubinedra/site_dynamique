@@ -242,7 +242,7 @@ a:-webkit-any-link {
         ></div>
  <ul class="navbar-links">
       <li class="navbar-dropdown">
-        <a href="#">Home</a>
+        <a href="{{route('index.index')}}">Home</a>
       </li>
       <li class="navbar-dropdown">
         <a href="{{route('Date.index')}}">Date</a>
@@ -260,7 +260,7 @@ a:-webkit-any-link {
         <a href="#">Presentation</a>
         <div class="dropdown">
           <a href="{{route('keynotes.index')}}">Keynote Speakers </a>
-          <a href="#">Special Sessions </a>
+          <a href="{{route('specialsessions.index')}}">Special Sessions </a>
         </div>
       </li>
       <li class="navbar-dropdown">

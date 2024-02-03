@@ -9,14 +9,11 @@ use App\Models\Photo;
 
 class ControllerPhoto extends Controller
 {
-    public function affiche(){
-        $photos=Photo::all();
-        return view('photo',compact('photos'));
-
-    }
+   
 
     public function videoPhoto(){
-        return view('photo');
+        $photos=Photo::all();
+        return view('photo',compact('photos'));
     }
     //photoform
     public function formF(){

@@ -10,15 +10,15 @@
 						<li class="submenu"> <a href="#"><i class="fas fa-user"></i> <span> Pages </span> <span class="menu-arrow"></span></a>
 							<ul class="submenu_class" style="display: none;">
 								<li><a href="{{route('pages.store')}}"> Ajouter page  </a></li>
-                                <li><a href="{{route('listeP.index')}}"> liste des pages </a></li>
+                                <li><a href=""> liste des pages </a></li>
 
 							</ul>
 						</li>
 
 						<li class="submenu"> <a href="#"><i class="fas fa-user"></i> <span> keynotespeaker </span> <span class="menu-arrow"></span></a>
 							<ul class="submenu_class" style="display: none;">
-                                <li><a href="{{route('speaker.index')}}"> Ajouter keynote  </a></li>
-                                <li><a href="{{route('liste.index')}}"> liste keynote </a></li>
+                                <li><a href=""> Ajouter keynote  </a></li>
+                                <li><a href=""> liste keynote </a></li>
 
 							</ul>
 						</li>

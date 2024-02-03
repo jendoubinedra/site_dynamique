@@ -18,6 +18,7 @@ use App\Http\Controllers\ParticipationController;
 use App\Http\Controllers\VenueController;
 use App\Http\Controllers\CommittesController;
 
+use App\Http\Controllers\HomeController;
 
 
 /*
@@ -164,3 +165,10 @@ Route::get('/Committees', [CommittesController::class,'Committees'])->name('Comm
 Route::get('/affichage', [ControllerSponsor::class,'affichage'])->name('affichage.index');
 //photo&video
 Route::get('/videoPhoto', [ControllerPhoto::class,'videoPhoto'])->name('videoPhoto.index');
+//presentation
+//Route::get('/videoPhoto', [ControllerPhoto::class,'videoPhoto'])->name('videoPhoto.index');
+//keynote
+Route::get('/keynotess', [ControllerKeynotespeaker::class,'viewkeynote'])->name('keynotess.index');
+//home
+Route::get('/index', [HomeController::class,'index'])->name('index.index');
+

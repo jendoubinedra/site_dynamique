@@ -14,7 +14,7 @@ class SpecialsessionController extends Controller
      //get all the Specialsession
      public function getall(){
         $specialsessions=Specialsession::all();
-        return view('session/liste',compact('specialsessions'));
+        return view('session/specialse',compact('specialsessions'));
     }
 
     // get the Specialsession by id

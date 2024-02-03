@@ -8,7 +8,7 @@ use App\Models\Sponsor;
 
 class ControllerSponsor extends Controller
 {
-    
+
 
     public function formSponsor(){
         return view('sponsors/addsponsor');
@@ -22,7 +22,7 @@ class ControllerSponsor extends Controller
     //get all the Sponsors
     public function getall(){
         $sponsors=Sponsor::all();
-        return view('sponsors/listeS',compact('sponsors'));
+        return view('sponsor',compact('sponsors'));
     }
 
     // get the Sponsor by id

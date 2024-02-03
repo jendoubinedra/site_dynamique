@@ -374,13 +374,15 @@ body {
 <div class="container">
     <h2>Photos</h2>
     <div class="content">
+@foreach ($photos as $photo )
+
 
        <div class="wrapper">
         <div class="box vintage">
-          <img src="" alt="EMMYLOU">
+          <img src="http://127.0.0.1:8000/{{$photo->vpath}}" alt="EMMYLOU">
         </div>
       </div>
-
+      @endforeach
     </div>
   </div>
 @include('layouts.footer')

@@ -7,7 +7,10 @@ use App\Models\Keynotespeaker;
 
 class ControllerKeynotespeaker extends Controller
 {
+   public function viewkeynote(){
 
+    return view ('keyNoteSpeakers/keynotepage');
+   }
     public function Keynotes(){
         $keynotes=Keynotespeaker::all();
         return view('keyNoteSpeakers/keynote',compact('keynotes'));
@@ -19,7 +22,7 @@ class ControllerKeynotespeaker extends Controller
       //get all the speaker
       public function getall(){
         $keynotes=Keynotespeaker::all();
-        return view('keyNoteSpeakers/liste',compact('keynotes'));
+        return view('keyNoteSpeakers/keynotepage',compact('keynotes'));
     }
 
     // get the speaker by id

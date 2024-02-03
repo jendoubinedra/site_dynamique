@@ -11,7 +11,7 @@ class ControllerOrganizer extends Controller
      //get all the organizers
      public function getall(){
         $organizers=Organizer::all();
-        return view('organizers/organizer',compact('organizers'));
+        return view('index',compact('organizers'));
     }
 
     // get the organizer by id
