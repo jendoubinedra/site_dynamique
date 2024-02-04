@@ -10,7 +10,7 @@ class ControllerOrganizer extends Controller
 {
      //get all the organizers
      public function getall(){
-        $organizers=Organizer::all();
+       
         return view('index',compact('organizers'));
     }
 

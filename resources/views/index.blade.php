@@ -1380,7 +1380,7 @@ body {
 </style>
 <body>
     <div class="parent vh-50">
-        <section id="slider" class="slider-element vh-50" style="background: url('images/banner.png') center center; background-size: cover;"></section>
+        <section id="slider" class="slider-element vh-50" style="background: {{url('images/banner.png')}} center center; background-size: cover;"></section>
         <div class="child">
             <div class="heading-block border-bottom-0" style="margin-bottom: 15px;">
                 <h1 class="white-text">Joint Urban Remote Sensing Event</h1>
@@ -1494,6 +1494,8 @@ body {
             </div>
         </div>
     </div> --}}
+</div>
+</div>
     <div class="section mb-0">
         <div class="container text-center">
 
