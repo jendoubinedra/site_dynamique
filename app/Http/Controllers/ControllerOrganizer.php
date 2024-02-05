@@ -9,10 +9,7 @@ use App\Models\Organizer;
 class ControllerOrganizer extends Controller
 {
      //get all the organizers
-     public function getall(){
-       
-        return view('index',compact('organizers'));
-    }
+
 
     // get the organizer by id
     public function getbyid($id){

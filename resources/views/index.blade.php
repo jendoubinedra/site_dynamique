@@ -1502,11 +1502,11 @@ body {
             <h3 class="titular-title gradient-horizon gradient-text">Meet the organizers</h3>
 
             <div class="row mb-2">
-                @foreach ($organizers as $organizer )
+      @foreach ($organizers as $organizer )
                  <div class="col-lg-4 text-end">
                     <a href=""><img src="http://127.0.0.1:8000/{{$organizer->src}}" width="300px" alt=""></a>
                 </div>
-                @endforeach
+      @endforeach
         </div>
 
     </div>
